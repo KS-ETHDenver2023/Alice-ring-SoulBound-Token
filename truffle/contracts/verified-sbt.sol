@@ -15,10 +15,11 @@ contract verified_sbt is ERC721 {
     mapping (uint256 => address) private _token; // link the sbt to a certain token
 
     mapping (uint256 => string) private _tokenURI; // uri where we can get the addresses used to generate the proof
-    mapping (uint256 => string) private _merkleRoot; // merkle root of the addresses (to ensure that the addresses have not been modified)
     mapping (uint256 => string) private _zkProof; // zk proof generated in the frontend (not verified yet)
 
     mapping (uint256 => uint256) private _timestamp; // timestamp of the minting of the proof
+
+    mapping (uint256 => bytes32) private _merkleRoot; // merkle root of the addresses (to ensure that the addresses have not been modified)
 
 
     uint256 private _tokenId;
@@ -93,7 +94,7 @@ contract verified_sbt is ERC721 {
     * @param zkProof is the zk proof generated in the frontend (which has been verified by the verifier)
     * mint a new sbt
     */
-    function mint(address receiver, address token, string memory tokenURI, string memory merkleRoot, string memory zkProof) public {
+    function mint(address receiver, address token, string memory tokenURI, bytes32 merkleRoot, string memory zkProof) public {
         require(_isMinter[msg.sender], "You are not a minter");
 
         _owner[_tokenId] = receiver;
@@ -130,7 +131,7 @@ contract verified_sbt is ERC721 {
     * @param tokenId is the id of the sbt
     * @return _merkleRoot associated to the sbt
     */
-    function getMerkleRoot(uint256 tokenId) public view returns (string memory) {
+    function getMerkleRoot(uint256 tokenId) public view returns (bytes32) {
         return _merkleRoot[tokenId];
     }
     /**
@@ -153,6 +154,14 @@ contract verified_sbt is ERC721 {
     */
     function getTimestamp(uint256 tokenId) public view returns (uint256) {
         return _timestamp[tokenId];
+    }
+
+        /**
+    * @param tokenId is the id of the sbt
+    * @return _tokenAddress associated to the sbt
+    */
+    function getTokenAddress(uint256 tokenId) public view returns (address) {
+        return _token[tokenId];
     }
 
     // admin functions

@@ -2,7 +2,7 @@ pragma solidity ^0.8.17;
 
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
-interface ISBT is IERC721 {
+interface ITempSBT is IERC721 {
 
     // get sbt data    
     /**
@@ -12,15 +12,13 @@ interface ISBT is IERC721 {
     function burn(uint256 tokenId) external;
 
     /**
-    * @param receiver is the address of the receiver of the sbt
     * @param token is the address of the token that is linked to the sbt
     * @param tokenURI is the uri where we can get the addresses used to generate the proof (stored on ipfs)
     * @param merkleRoot is the merkle root of the addresses (to ensure that the addresses have not been modified)
     * @param zkProof is the zk proof generated in the frontend (which has been verified by the verifier)
     * mint a new sbt
     */
-    function mint(address receiver, address token, string memory tokenURI, bytes32 merkleRoot, string memory zkProof) external;
-
+    function mint(address token, string memory tokenURI, bytes32 merkleRoot, string memory zkProof) external;
 
     /**
     * @param tokenId is the id of the sbt

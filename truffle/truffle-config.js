@@ -42,7 +42,7 @@ module.exports = {
       provider: () => {
         return new HDWalletProvider(MNEMONIC, 'https://goerli.infura.io/v3/' + API_KEY)
       },
-      network_id: '5', // eslint-disable-line camelcase
+      network_id: '5', // Goerli's id
       gas: 4465030,
       gasPrice: 100000000000,
     }

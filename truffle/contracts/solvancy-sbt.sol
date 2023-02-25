@@ -13,8 +13,9 @@ contract temp_sbt is ERC721 {
     mapping (uint256 => address) private _token; // link the sbt to a certain token
 
     mapping (uint256 => string) private _tokenURI; // uri where we can get the addresses used to generate the proof
-    mapping (uint256 => string) private _merkleRoot; // merkle root of the addresses (to ensure that the addresses have not been modified)
     mapping (uint256 => string) private _zkProof; // zk proof generated in the frontend (not verified yet)
+
+    mapping (uint256 => bytes32) private _merkleRoot; // merkle root of the addresses (to ensure that the addresses have not been modified)
 
 
     uint256 private _tokenId;
@@ -54,7 +55,7 @@ contract temp_sbt is ERC721 {
     }
 
     // mint and burn sbt
-    function mint(address token, string memory tokenURI, string memory merkleRoot, string memory zkProof) public {
+    function mint(address token, string memory tokenURI, bytes32 merkleRoot, string memory zkProof) public {
         _owner[_tokenId] = msg.sender;
         _token[_tokenId] = token;
         _tokenURI[_tokenId] = tokenURI;
@@ -77,7 +78,7 @@ contract temp_sbt is ERC721 {
     }
 
     // get sbt data    
-    function getMerkleRoot(uint256 tokenId) public view returns (string memory) {
+    function getMerkleRoot(uint256 tokenId) public view returns (bytes32) {
         return _merkleRoot[tokenId];
     }
     function getZkProof(uint256 tokenId) public view returns (string memory) {
@@ -85,6 +86,9 @@ contract temp_sbt is ERC721 {
     }
     function getTokenURI(uint256 tokenId) public view returns (string memory) {
         return _tokenURI[tokenId];
+    }
+    function getTokenAddress(uint256 tokenId) public view returns (address) {
+        return _token[tokenId];
     }
 
     // admin functions
