@@ -1,5 +1,8 @@
 pragma solidity ^0.8.17;
 
+// Taken from https://github.com/HarryR/solcrypto, sligthly modified by ourself
+
+
 import "./Curve.sol";
 
 // // https://en.wikipedia.org/wiki/Proof_of_knowledge#Schnorr_protocol

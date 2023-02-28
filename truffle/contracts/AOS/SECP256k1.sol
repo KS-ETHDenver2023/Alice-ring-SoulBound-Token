@@ -1,10 +1,13 @@
 pragma solidity ^0.8.17;
 
 /*
-Taken from https://github.com/jbaylina/ecsol and https://github.com/1Address/ecsol
+Taken from https://github.com/jbaylina/ecsol and https://github.com/1Address/ecsol by HarryR
 
 License: GPL-3.0
 */
+
+// Taken from https://github.com/HarryR/solcrypto, sligthly modified by ourself
+
 
 
 contract SECP2561k {
