@@ -16,10 +16,10 @@ interface ISBT is IERC721 {
     * @param token is the address of the token that is linked to the sbt
     * @param tokenURI is the uri where we can get the addresses used to generate the proof (stored on ipfs)
     * @param merkleRoot is the merkle root of the addresses (to ensure that the addresses have not been modified)
-    * @param zkProof is the zk proof generated in the frontend (which has been verified by the verifier)
+    * @param signature is the zk proof generated in the frontend (which has been verified by the verifier)
     * mint a new sbt
     */
-    function mint(address receiver, address token, string memory tokenURI, bytes32 merkleRoot, string memory zkProof) external;
+    function mint(address receiver, address token, string memory tokenURI, bytes32 merkleRoot, uint256 signature, string memory verifier) external;
 
 
     /**
@@ -30,9 +30,9 @@ interface ISBT is IERC721 {
 
     /**
     * @param tokenId is the id of the sbt
-    * @return _zkProof associated to the sbt
+    * @return _signature associated to the sbt
     */
-    function getZkProof(uint256 tokenId) external view returns (string memory);
+    function getSignature(uint256 tokenId) external view returns (string memory);
 
     /**
     * @param tokenId is the id of the sbt

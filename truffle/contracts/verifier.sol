@@ -2,44 +2,35 @@
 
 pragma solidity ^0.8.17;
 
+import "./IERC20.sol";
 import "./ISBT.sol";
-import "./ITempSBT.sol";
+import "./hackyAOS/hackyAOS.sol";
+// import "./AOS/AOSring.sol";
+// import "./merklesolcrypto.sol";
 
 contract verifier {
 
-    ITempSBT _temp_sbt;
     ISBT _sbt;
 
-    constructor(address temp_sbt, address sbt) {
+    constructor(address sbt) {
         _sbt = ISBT(sbt);
-        _temp_sbt = ITempSBT(temp_sbt);
-
     }
 
-
-    function verifyProof(uint256 temp_sbt_id, string memory zkProof) public returns (bool) {
-        // a coder avec le verifier de zokrates
-        return true;
-    }
-
-    function sbtVerification(uint256 temp_sbt_id, address[] memory addresses) public {
+    function verify(address[] memory addresses,uint256 value, uint256 message, address token, string memory addressesURI, string memory verifierData) public {
+        uint256[] memory tees = new uint256[](addresses.length);
+        uint256 seed = 0;
+        // verify the ring signature
+        require(HackyAOSRing.Verify(addresses, tees, seed, message), "Invalid ring signature"); // c'est quoi tees et seed ?
         
-        // get data from temp_sbt
-        bytes32 merkleRoot = _temp_sbt.getMerkleRoot(temp_sbt_id);
-        string memory zkProof = _temp_sbt.getZkProof(temp_sbt_id);
-        string memory tokenURI = _temp_sbt.getTokenURI(temp_sbt_id);
-        address tokenAddress = _temp_sbt.getTokenAddress(temp_sbt_id);
-
-        require(verifyProof(temp_sbt_id, zkProof), "Proof is not valid");
-        require(verifyRoot(merkleRoot, addresses), "Merkle root does not correspond to the addresses");
-
-        // burn temp_sbt
-        _temp_sbt.burn(temp_sbt_id);
+        for (uint i = 0; i < addresses.length; i++) {
+            require(IERC20(token).balanceOf(addresses[i]) >= value, "Insufficient balance in at least one address");
+        }
+        bytes32 root = buildRoot(addresses); // build merkle root to save in sbt
 
         // mint sbt
-        _sbt.mint(msg.sender, tokenAddress, tokenURI, merkleRoot, zkProof);
-
+        _sbt.mint(msg.sender, token, addressesURI, root, message, verifierData);        
     }
+
 
 
     // merkle tree functions
@@ -80,7 +71,5 @@ contract verifier {
     function verifyRoot(bytes32 root, address[] memory addresses) public pure returns (bool) {
         return buildRoot(addresses) == root;
     }
-    
 
-    
 }

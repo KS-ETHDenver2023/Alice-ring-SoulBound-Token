@@ -322,8 +322,13 @@
           "type": "bytes32"
         },
         {
+          "internalType": "uint256",
+          "name": "signature",
+          "type": "uint256"
+        },
+        {
           "internalType": "string",
-          "name": "zkProof",
+          "name": "verifier",
           "type": "string"
         }
       ],
@@ -359,7 +364,7 @@
           "type": "uint256"
         }
       ],
-      "name": "getZkProof",
+      "name": "getSignature",
       "outputs": [
         {
           "internalType": "string",
@@ -482,7 +487,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"approved\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"ApprovalForAll\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"balance\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"burn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"isAdmin\",\"type\":\"bool\"}],\"name\":\"editAdmin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"burner\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"isBurner\",\"type\":\"bool\"}],\"name\":\"editBurner\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"minter\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"isMinter\",\"type\":\"bool\"}],\"name\":\"editMinter\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getApproved\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getMerkleRoot\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getTokenAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getTokenURI\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getZkProof\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"name\":\"isApprovedForAll\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"tokenURI\",\"type\":\"string\"},{\"internalType\":\"bytes32\",\"name\":\"merkleRoot\",\"type\":\"bytes32\"},{\"internalType\":\"string\",\"name\":\"zkProof\",\"type\":\"string\"}],\"name\":\"mint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"ownerOf\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"_approved\",\"type\":\"bool\"}],\"name\":\"setApprovalForAll\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"approve(address,uint256)\":{\"details\":\"Gives permission to `to` to transfer `tokenId` token to another account. The approval is cleared when the token is transferred. Only a single account can be approved at a time, so approving the zero address clears previous approvals. Requirements: - The caller must own the token or be an approved operator. - `tokenId` must exist. Emits an {Approval} event.\"},\"balanceOf(address)\":{\"details\":\"Returns the number of tokens in ``owner``'s account.\"},\"burn(uint256)\":{\"params\":{\"tokenId\":\"is the id of the sbt to burn burn an sbt\"}},\"editAdmin(address,bool)\":{\"params\":{\"admin\":\"is the address of the admin to add/remove\",\"isAdmin\":\"is true if the admin is added, false if the admin is removed\"}},\"editBurner(address,bool)\":{\"params\":{\"burner\":\"is the address of the burner to add/remove\",\"isBurner\":\"is true if the burner is added, false if the burner is removed\"}},\"editMinter(address,bool)\":{\"params\":{\"isMinter\":\"is true if the minter is added, false if the minter is removed\",\"minter\":\"is the address of the minter to add/remove\"}},\"getApproved(uint256)\":{\"details\":\"Returns the account approved for `tokenId` token. Requirements: - `tokenId` must exist.\"},\"getMerkleRoot(uint256)\":{\"params\":{\"tokenId\":\"is the id of the sbt\"},\"returns\":{\"_0\":\"_merkleRoot associated to the sbt\"}},\"getTimestamp(uint256)\":{\"params\":{\"tokenId\":\"is the id of the sbt\"},\"returns\":{\"_0\":\"_timestamp associated to the sbt\"}},\"getTokenAddress(uint256)\":{\"params\":{\"tokenId\":\"is the id of the sbt\"},\"returns\":{\"_0\":\"_tokenAddress associated to the sbt\"}},\"getTokenURI(uint256)\":{\"params\":{\"tokenId\":\"is the id of the sbt\"},\"returns\":{\"_0\":\"_tokenURI associated to the sbt\"}},\"getZkProof(uint256)\":{\"params\":{\"tokenId\":\"is the id of the sbt\"},\"returns\":{\"_0\":\"_zkProof associated to the sbt\"}},\"isApprovedForAll(address,address)\":{\"details\":\"Returns if the `operator` is allowed to manage all of the assets of `owner`. See {setApprovalForAll}\"},\"mint(address,address,string,bytes32,string)\":{\"params\":{\"merkleRoot\":\"is the merkle root of the addresses (to ensure that the addresses have not been modified)\",\"receiver\":\"is the address of the receiver of the sbt\",\"token\":\"is the address of the token that is linked to the sbt\",\"tokenURI\":\"is the uri where we can get the addresses used to generate the proof (stored on ipfs)\",\"zkProof\":\"is the zk proof generated in the frontend (which has been verified by the verifier) mint a new sbt\"}},\"ownerOf(uint256)\":{\"details\":\"Returns the owner of the `tokenId` token. Requirements: - `tokenId` must exist.\"},\"safeTransferFrom(address,address,uint256)\":{\"details\":\"Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients are aware of the ERC721 protocol to prevent tokens from being forever locked. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must have been allowed to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event.\"},\"safeTransferFrom(address,address,uint256,bytes)\":{\"details\":\"Safely transfers `tokenId` token from `from` to `to`. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event.\"},\"setApprovalForAll(address,bool)\":{\"details\":\"Approve or remove `operator` as an operator for the caller. Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller. Requirements: - The `operator` cannot be the caller. Emits an {ApprovalForAll} event.\"},\"supportsInterface(bytes4)\":{\"details\":\"Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas.\"},\"transferFrom(address,address,uint256)\":{\"details\":\"Transfers `tokenId` token from `from` to `to`. WARNING: Note that the caller is responsible to confirm that the recipient is capable of receiving ERC721 or else they may be permanently lost. Usage of {safeTransferFrom} prevents loss, though the caller must understand this adds an external call which potentially creates a reentrancy vulnerability. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. Emits a {Transfer} event.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/ISBT.sol\":\"ISBT\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0xab28a56179c1db258c9bf5235b382698cb650debecb51b23d12be9e241374b68\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://daae589a9d6fa7e55f99f86c0a16796ca490f243fb3693632c3711c0646c1d56\",\"dweb:/ipfs/QmR3zpd7wNw3rcUdekwiv6FYHJqksuTCXLVioTxu6Fbxk3\"]},\"@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f\",\"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy\"]},\"project:/contracts/ISBT.sol\":{\"keccak256\":\"0xfd08e56488a409ec3cf10231a8288ef72b3e9e8ffe039059d3ff360d8a65b305\",\"urls\":[\"bzz-raw://1cbe811757da8bb52064c0a038e29c5120c1538dfc0ef8e3db6c3a1f7d26836f\",\"dweb:/ipfs/QmPMsw6JUM5PAa2QVBAU3Lg9acMfZUWtTARpvbSFbyuXnP\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"approved\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"ApprovalForAll\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"balance\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"burn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"isAdmin\",\"type\":\"bool\"}],\"name\":\"editAdmin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"burner\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"isBurner\",\"type\":\"bool\"}],\"name\":\"editBurner\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"minter\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"isMinter\",\"type\":\"bool\"}],\"name\":\"editMinter\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getApproved\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getMerkleRoot\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getSignature\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getTokenAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getTokenURI\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"name\":\"isApprovedForAll\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"tokenURI\",\"type\":\"string\"},{\"internalType\":\"bytes32\",\"name\":\"merkleRoot\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"signature\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"verifier\",\"type\":\"string\"}],\"name\":\"mint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"ownerOf\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"_approved\",\"type\":\"bool\"}],\"name\":\"setApprovalForAll\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"approve(address,uint256)\":{\"details\":\"Gives permission to `to` to transfer `tokenId` token to another account. The approval is cleared when the token is transferred. Only a single account can be approved at a time, so approving the zero address clears previous approvals. Requirements: - The caller must own the token or be an approved operator. - `tokenId` must exist. Emits an {Approval} event.\"},\"balanceOf(address)\":{\"details\":\"Returns the number of tokens in ``owner``'s account.\"},\"burn(uint256)\":{\"params\":{\"tokenId\":\"is the id of the sbt to burn burn an sbt\"}},\"editAdmin(address,bool)\":{\"params\":{\"admin\":\"is the address of the admin to add/remove\",\"isAdmin\":\"is true if the admin is added, false if the admin is removed\"}},\"editBurner(address,bool)\":{\"params\":{\"burner\":\"is the address of the burner to add/remove\",\"isBurner\":\"is true if the burner is added, false if the burner is removed\"}},\"editMinter(address,bool)\":{\"params\":{\"isMinter\":\"is true if the minter is added, false if the minter is removed\",\"minter\":\"is the address of the minter to add/remove\"}},\"getApproved(uint256)\":{\"details\":\"Returns the account approved for `tokenId` token. Requirements: - `tokenId` must exist.\"},\"getMerkleRoot(uint256)\":{\"params\":{\"tokenId\":\"is the id of the sbt\"},\"returns\":{\"_0\":\"_merkleRoot associated to the sbt\"}},\"getSignature(uint256)\":{\"params\":{\"tokenId\":\"is the id of the sbt\"},\"returns\":{\"_0\":\"_signature associated to the sbt\"}},\"getTimestamp(uint256)\":{\"params\":{\"tokenId\":\"is the id of the sbt\"},\"returns\":{\"_0\":\"_timestamp associated to the sbt\"}},\"getTokenAddress(uint256)\":{\"params\":{\"tokenId\":\"is the id of the sbt\"},\"returns\":{\"_0\":\"_tokenAddress associated to the sbt\"}},\"getTokenURI(uint256)\":{\"params\":{\"tokenId\":\"is the id of the sbt\"},\"returns\":{\"_0\":\"_tokenURI associated to the sbt\"}},\"isApprovedForAll(address,address)\":{\"details\":\"Returns if the `operator` is allowed to manage all of the assets of `owner`. See {setApprovalForAll}\"},\"mint(address,address,string,bytes32,uint256,string)\":{\"params\":{\"merkleRoot\":\"is the merkle root of the addresses (to ensure that the addresses have not been modified)\",\"receiver\":\"is the address of the receiver of the sbt\",\"signature\":\"is the zk proof generated in the frontend (which has been verified by the verifier) mint a new sbt\",\"token\":\"is the address of the token that is linked to the sbt\",\"tokenURI\":\"is the uri where we can get the addresses used to generate the proof (stored on ipfs)\"}},\"ownerOf(uint256)\":{\"details\":\"Returns the owner of the `tokenId` token. Requirements: - `tokenId` must exist.\"},\"safeTransferFrom(address,address,uint256)\":{\"details\":\"Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients are aware of the ERC721 protocol to prevent tokens from being forever locked. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must have been allowed to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event.\"},\"safeTransferFrom(address,address,uint256,bytes)\":{\"details\":\"Safely transfers `tokenId` token from `from` to `to`. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event.\"},\"setApprovalForAll(address,bool)\":{\"details\":\"Approve or remove `operator` as an operator for the caller. Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller. Requirements: - The `operator` cannot be the caller. Emits an {ApprovalForAll} event.\"},\"supportsInterface(bytes4)\":{\"details\":\"Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas.\"},\"transferFrom(address,address,uint256)\":{\"details\":\"Transfers `tokenId` token from `from` to `to`. WARNING: Note that the caller is responsible to confirm that the recipient is capable of receiving ERC721 or else they may be permanently lost. Usage of {safeTransferFrom} prevents loss, though the caller must understand this adds an external call which potentially creates a reentrancy vulnerability. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. Emits a {Transfer} event.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/ISBT.sol\":\"ISBT\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0xada40b8f977a8100d0875b03c93a6714ec6aef2b3cdb4c99d94ac5803a1e8ece\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://af654061d9ee00ba6ef793119abc96fe3a1d29e75ef30187093badd03fe55817\",\"dweb:/ipfs/QmXkJWKpkB8KMZorDUz4b1vZZQ89Q1GAAR9UPgPcEskjY4\"]},\"@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0x540685d7ece3faa56f38253270ff11b18e63949fb8659c408123b1874674492e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5474839e19e2571c52eae3aab1dc6e6edf2b20bbba9895f59db6594a2678a3d5\",\"dweb:/ipfs/QmVHocBeANMkq4TzVM7q9At5NSg1TEpT9D9vgJ5dGcvcPN\"]},\"project:/contracts/ISBT.sol\":{\"keccak256\":\"0x19a95aa9e55cf42e665ab6a5bb6f7f16c0ed611bd8848edf2bce4e48dc2a2373\",\"urls\":[\"bzz-raw://84d70788a4e4beeb9de4968bb52fee407b4ad6f459d4f349ec73749095ff302f\",\"dweb:/ipfs/QmSEaPNgNCxrgFFamqDZWUe6eJ5Qg8u9nLSV35N6aon763\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -490,7 +495,7 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.8.17;\r\n\r\nimport \"@openzeppelin/contracts/token/ERC721/IERC721.sol\";\r\n\r\ninterface ISBT is IERC721 {\r\n\r\n    // get sbt data    \r\n    /**\r\n    * @param tokenId is the id of the sbt to burn\r\n    * burn an sbt\r\n    */\r\n    function burn(uint256 tokenId) external;\r\n\r\n    /**\r\n    * @param receiver is the address of the receiver of the sbt\r\n    * @param token is the address of the token that is linked to the sbt\r\n    * @param tokenURI is the uri where we can get the addresses used to generate the proof (stored on ipfs)\r\n    * @param merkleRoot is the merkle root of the addresses (to ensure that the addresses have not been modified)\r\n    * @param zkProof is the zk proof generated in the frontend (which has been verified by the verifier)\r\n    * mint a new sbt\r\n    */\r\n    function mint(address receiver, address token, string memory tokenURI, bytes32 merkleRoot, string memory zkProof) external;\r\n\r\n\r\n    /**\r\n    * @param tokenId is the id of the sbt\r\n    * @return _merkleRoot associated to the sbt\r\n    */\r\n    function getMerkleRoot(uint256 tokenId) external view returns (bytes32);\r\n\r\n    /**\r\n    * @param tokenId is the id of the sbt\r\n    * @return _zkProof associated to the sbt\r\n    */\r\n    function getZkProof(uint256 tokenId) external view returns (string memory);\r\n\r\n    /**\r\n    * @param tokenId is the id of the sbt\r\n    * @return _tokenURI associated to the sbt\r\n    */\r\n    function getTokenURI(uint256 tokenId) external view returns (string memory);\r\n\r\n    /**\r\n    * @param tokenId is the id of the sbt\r\n    * @return _timestamp associated to the sbt\r\n    */\r\n    function getTimestamp(uint256 tokenId) external view returns (uint256);\r\n\r\n    /**\r\n    * @param tokenId is the id of the sbt\r\n    * @return _tokenAddress associated to the sbt\r\n    */\r\n    function getTokenAddress(uint256 tokenId) external view returns (address);\r\n\r\n\r\n    // admin functions\r\n    /**\r\n    * @param admin is the address of the admin to add/remove\r\n    * @param isAdmin is true if the admin is added, false if the admin is removed\r\n    */\r\n    function editAdmin(address admin, bool isAdmin) external;\r\n\r\n    /**\r\n    * @param minter is the address of the minter to add/remove\r\n    * @param isMinter is true if the minter is added, false if the minter is removed\r\n    */\r\n    function editMinter(address minter, bool isMinter) external;\r\n\r\n    /**\r\n    * @param burner is the address of the burner to add/remove\r\n    * @param isBurner is true if the burner is added, false if the burner is removed\r\n    */\r\n    function editBurner(address burner, bool isBurner) external;\r\n}\r\n\r\n",
+  "source": "pragma solidity ^0.8.17;\r\n\r\nimport \"@openzeppelin/contracts/token/ERC721/IERC721.sol\";\r\n\r\ninterface ISBT is IERC721 {\r\n\r\n    // get sbt data    \r\n    /**\r\n    * @param tokenId is the id of the sbt to burn\r\n    * burn an sbt\r\n    */\r\n    function burn(uint256 tokenId) external;\r\n\r\n    /**\r\n    * @param receiver is the address of the receiver of the sbt\r\n    * @param token is the address of the token that is linked to the sbt\r\n    * @param tokenURI is the uri where we can get the addresses used to generate the proof (stored on ipfs)\r\n    * @param merkleRoot is the merkle root of the addresses (to ensure that the addresses have not been modified)\r\n    * @param signature is the zk proof generated in the frontend (which has been verified by the verifier)\r\n    * mint a new sbt\r\n    */\r\n    function mint(address receiver, address token, string memory tokenURI, bytes32 merkleRoot, uint256 signature, string memory verifier) external;\r\n\r\n\r\n    /**\r\n    * @param tokenId is the id of the sbt\r\n    * @return _merkleRoot associated to the sbt\r\n    */\r\n    function getMerkleRoot(uint256 tokenId) external view returns (bytes32);\r\n\r\n    /**\r\n    * @param tokenId is the id of the sbt\r\n    * @return _signature associated to the sbt\r\n    */\r\n    function getSignature(uint256 tokenId) external view returns (string memory);\r\n\r\n    /**\r\n    * @param tokenId is the id of the sbt\r\n    * @return _tokenURI associated to the sbt\r\n    */\r\n    function getTokenURI(uint256 tokenId) external view returns (string memory);\r\n\r\n    /**\r\n    * @param tokenId is the id of the sbt\r\n    * @return _timestamp associated to the sbt\r\n    */\r\n    function getTimestamp(uint256 tokenId) external view returns (uint256);\r\n\r\n    /**\r\n    * @param tokenId is the id of the sbt\r\n    * @return _tokenAddress associated to the sbt\r\n    */\r\n    function getTokenAddress(uint256 tokenId) external view returns (address);\r\n\r\n\r\n    // admin functions\r\n    /**\r\n    * @param admin is the address of the admin to add/remove\r\n    * @param isAdmin is true if the admin is added, false if the admin is removed\r\n    */\r\n    function editAdmin(address admin, bool isAdmin) external;\r\n\r\n    /**\r\n    * @param minter is the address of the minter to add/remove\r\n    * @param isMinter is true if the minter is added, false if the minter is removed\r\n    */\r\n    function editMinter(address minter, bool isMinter) external;\r\n\r\n    /**\r\n    * @param burner is the address of the burner to add/remove\r\n    * @param isBurner is true if the burner is added, false if the burner is removed\r\n    */\r\n    function editBurner(address burner, bool isBurner) external;\r\n}\r\n\r\n",
   "sourcePath": "C:\\Users\\hervi\\Documents\\Blockchain Projects\\ETHDenver2023\\Smart-contract\\truffle\\contracts\\ISBT.sol",
   "ast": {
     "absolutePath": "project:/contracts/ISBT.sol",
@@ -502,14 +507,14 @@
         1060
       ],
       "ISBT": [
-        2623
+        3738
       ]
     },
-    "id": 2624,
+    "id": 3739,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2535,
+        "id": 3648,
         "literals": [
           "solidity",
           "^",
@@ -517,17 +522,17 @@
           ".17"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:10"
+        "src": "0:24:15"
       },
       {
         "absolutePath": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
         "file": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
-        "id": 2536,
+        "id": 3649,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 2624,
+        "scope": 3739,
         "sourceUnit": 1061,
-        "src": "28:58:10",
+        "src": "28:58:15",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -536,62 +541,62 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 2537,
+              "id": 3650,
               "name": "IERC721",
               "nameLocations": [
-                "108:7:10"
+                "108:7:15"
               ],
               "nodeType": "IdentifierPath",
               "referencedDeclaration": 1060,
-              "src": "108:7:10"
+              "src": "108:7:15"
             },
-            "id": 2538,
+            "id": 3651,
             "nodeType": "InheritanceSpecifier",
-            "src": "108:7:10"
+            "src": "108:7:15"
           }
         ],
         "canonicalName": "ISBT",
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 2623,
+        "id": 3738,
         "linearizedBaseContracts": [
-          2623,
+          3738,
           1060,
           1668
         ],
         "name": "ISBT",
-        "nameLocation": "100:4:10",
+        "nameLocation": "100:4:15",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "documentation": {
-              "id": 2539,
+              "id": 3652,
               "nodeType": "StructuredDocumentation",
-              "src": "150:81:10",
+              "src": "150:81:15",
               "text": " @param tokenId is the id of the sbt to burn\n burn an sbt"
             },
             "functionSelector": "42966c68",
-            "id": 2544,
+            "id": 3657,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "burn",
-            "nameLocation": "246:4:10",
+            "nameLocation": "246:4:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2542,
+              "id": 3655,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2541,
+                  "id": 3654,
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "259:7:10",
+                  "nameLocation": "259:7:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2544,
-                  "src": "251:15:10",
+                  "scope": 3657,
+                  "src": "251:15:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -599,10 +604,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2540,
+                    "id": 3653,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "251:7:10",
+                    "src": "251:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -611,48 +616,48 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "250:17:10"
+              "src": "250:17:15"
             },
             "returnParameters": {
-              "id": 2543,
+              "id": 3656,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "276:0:10"
+              "src": "276:0:15"
             },
-            "scope": 2623,
-            "src": "237:40:10",
+            "scope": 3738,
+            "src": "237:40:15",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 2545,
+              "id": 3658,
               "nodeType": "StructuredDocumentation",
-              "src": "285:502:10",
-              "text": " @param receiver is the address of the receiver of the sbt\n @param token is the address of the token that is linked to the sbt\n @param tokenURI is the uri where we can get the addresses used to generate the proof (stored on ipfs)\n @param merkleRoot is the merkle root of the addresses (to ensure that the addresses have not been modified)\n @param zkProof is the zk proof generated in the frontend (which has been verified by the verifier)\n mint a new sbt"
+              "src": "285:504:15",
+              "text": " @param receiver is the address of the receiver of the sbt\n @param token is the address of the token that is linked to the sbt\n @param tokenURI is the uri where we can get the addresses used to generate the proof (stored on ipfs)\n @param merkleRoot is the merkle root of the addresses (to ensure that the addresses have not been modified)\n @param signature is the zk proof generated in the frontend (which has been verified by the verifier)\n mint a new sbt"
             },
-            "functionSelector": "232b7117",
-            "id": 2558,
+            "functionSelector": "c44bef5d",
+            "id": 3673,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "mint",
-            "nameLocation": "802:4:10",
+            "nameLocation": "804:4:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2556,
+              "id": 3671,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2547,
+                  "id": 3660,
                   "mutability": "mutable",
                   "name": "receiver",
-                  "nameLocation": "815:8:10",
+                  "nameLocation": "817:8:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2558,
-                  "src": "807:16:10",
+                  "scope": 3673,
+                  "src": "809:16:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -660,10 +665,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2546,
+                    "id": 3659,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "807:7:10",
+                    "src": "809:7:15",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -674,13 +679,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2549,
+                  "id": 3662,
                   "mutability": "mutable",
                   "name": "token",
-                  "nameLocation": "833:5:10",
+                  "nameLocation": "835:5:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2558,
-                  "src": "825:13:10",
+                  "scope": 3673,
+                  "src": "827:13:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -688,10 +693,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2548,
+                    "id": 3661,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "825:7:10",
+                    "src": "827:7:15",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -702,13 +707,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2551,
+                  "id": 3664,
                   "mutability": "mutable",
                   "name": "tokenURI",
-                  "nameLocation": "854:8:10",
+                  "nameLocation": "856:8:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2558,
-                  "src": "840:22:10",
+                  "scope": 3673,
+                  "src": "842:22:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -716,10 +721,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 2550,
+                    "id": 3663,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "840:6:10",
+                    "src": "842:6:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -729,13 +734,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2553,
+                  "id": 3666,
                   "mutability": "mutable",
                   "name": "merkleRoot",
-                  "nameLocation": "872:10:10",
+                  "nameLocation": "874:10:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2558,
-                  "src": "864:18:10",
+                  "scope": 3673,
+                  "src": "866:18:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -743,10 +748,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 2552,
+                    "id": 3665,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "864:7:10",
+                    "src": "866:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -756,13 +761,40 @@
                 },
                 {
                   "constant": false,
-                  "id": 2555,
+                  "id": 3668,
                   "mutability": "mutable",
-                  "name": "zkProof",
-                  "nameLocation": "898:7:10",
+                  "name": "signature",
+                  "nameLocation": "894:9:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2558,
-                  "src": "884:21:10",
+                  "scope": 3673,
+                  "src": "886:17:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3667,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "886:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3670,
+                  "mutability": "mutable",
+                  "name": "verifier",
+                  "nameLocation": "919:8:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3673,
+                  "src": "905:22:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -770,10 +802,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 2554,
+                    "id": 3669,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "884:6:10",
+                    "src": "905:6:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -782,48 +814,48 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "806:100:10"
+              "src": "808:120:15"
             },
             "returnParameters": {
-              "id": 2557,
+              "id": 3672,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "915:0:10"
+              "src": "937:0:15"
             },
-            "scope": 2623,
-            "src": "793:123:10",
+            "scope": 3738,
+            "src": "795:143:15",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 2559,
+              "id": 3674,
               "nodeType": "StructuredDocumentation",
-              "src": "926:103:10",
+              "src": "948:103:15",
               "text": " @param tokenId is the id of the sbt\n @return _merkleRoot associated to the sbt"
             },
             "functionSelector": "0aab8ba5",
-            "id": 2566,
+            "id": 3681,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getMerkleRoot",
-            "nameLocation": "1044:13:10",
+            "nameLocation": "1066:13:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2562,
+              "id": 3677,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2561,
+                  "id": 3676,
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "1066:7:10",
+                  "nameLocation": "1088:7:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2566,
-                  "src": "1058:15:10",
+                  "scope": 3681,
+                  "src": "1080:15:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -831,10 +863,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2560,
+                    "id": 3675,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1058:7:10",
+                    "src": "1080:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -843,21 +875,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1057:17:10"
+              "src": "1079:17:15"
             },
             "returnParameters": {
-              "id": 2565,
+              "id": 3680,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2564,
+                  "id": 3679,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2566,
-                  "src": "1098:7:10",
+                  "scope": 3681,
+                  "src": "1120:7:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -865,10 +897,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 2563,
+                    "id": 3678,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1098:7:10",
+                    "src": "1120:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -877,42 +909,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1097:9:10"
+              "src": "1119:9:15"
             },
-            "scope": 2623,
-            "src": "1035:72:10",
+            "scope": 3738,
+            "src": "1057:72:15",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 2567,
+              "id": 3682,
               "nodeType": "StructuredDocumentation",
-              "src": "1115:100:10",
-              "text": " @param tokenId is the id of the sbt\n @return _zkProof associated to the sbt"
+              "src": "1137:102:15",
+              "text": " @param tokenId is the id of the sbt\n @return _signature associated to the sbt"
             },
-            "functionSelector": "e0c6fa58",
-            "id": 2574,
+            "functionSelector": "02a569e6",
+            "id": 3689,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "getZkProof",
-            "nameLocation": "1230:10:10",
+            "name": "getSignature",
+            "nameLocation": "1254:12:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2570,
+              "id": 3685,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2569,
+                  "id": 3684,
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "1249:7:10",
+                  "nameLocation": "1275:7:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2574,
-                  "src": "1241:15:10",
+                  "scope": 3689,
+                  "src": "1267:15:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -920,10 +952,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2568,
+                    "id": 3683,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1241:7:10",
+                    "src": "1267:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -932,21 +964,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1240:17:10"
+              "src": "1266:17:15"
             },
             "returnParameters": {
-              "id": 2573,
+              "id": 3688,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2572,
+                  "id": 3687,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2574,
-                  "src": "1281:13:10",
+                  "scope": 3689,
+                  "src": "1307:13:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -954,10 +986,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 2571,
+                    "id": 3686,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1281:6:10",
+                    "src": "1307:6:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -966,42 +998,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1280:15:10"
+              "src": "1306:15:15"
             },
-            "scope": 2623,
-            "src": "1221:75:10",
+            "scope": 3738,
+            "src": "1245:77:15",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 2575,
+              "id": 3690,
               "nodeType": "StructuredDocumentation",
-              "src": "1304:101:10",
+              "src": "1330:101:15",
               "text": " @param tokenId is the id of the sbt\n @return _tokenURI associated to the sbt"
             },
             "functionSelector": "3bb3a24d",
-            "id": 2582,
+            "id": 3697,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getTokenURI",
-            "nameLocation": "1420:11:10",
+            "nameLocation": "1446:11:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2578,
+              "id": 3693,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2577,
+                  "id": 3692,
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "1440:7:10",
+                  "nameLocation": "1466:7:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2582,
-                  "src": "1432:15:10",
+                  "scope": 3697,
+                  "src": "1458:15:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1009,10 +1041,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2576,
+                    "id": 3691,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1432:7:10",
+                    "src": "1458:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1021,21 +1053,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1431:17:10"
+              "src": "1457:17:15"
             },
             "returnParameters": {
-              "id": 2581,
+              "id": 3696,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2580,
+                  "id": 3695,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2582,
-                  "src": "1472:13:10",
+                  "scope": 3697,
+                  "src": "1498:13:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1043,10 +1075,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 2579,
+                    "id": 3694,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1472:6:10",
+                    "src": "1498:6:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -1055,42 +1087,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1471:15:10"
+              "src": "1497:15:15"
             },
-            "scope": 2623,
-            "src": "1411:76:10",
+            "scope": 3738,
+            "src": "1437:76:15",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 2583,
+              "id": 3698,
               "nodeType": "StructuredDocumentation",
-              "src": "1495:102:10",
+              "src": "1521:102:15",
               "text": " @param tokenId is the id of the sbt\n @return _timestamp associated to the sbt"
             },
             "functionSelector": "b633620c",
-            "id": 2590,
+            "id": 3705,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getTimestamp",
-            "nameLocation": "1612:12:10",
+            "nameLocation": "1638:12:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2586,
+              "id": 3701,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2585,
+                  "id": 3700,
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "1633:7:10",
+                  "nameLocation": "1659:7:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2590,
-                  "src": "1625:15:10",
+                  "scope": 3705,
+                  "src": "1651:15:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1098,10 +1130,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2584,
+                    "id": 3699,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1625:7:10",
+                    "src": "1651:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1110,21 +1142,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1624:17:10"
+              "src": "1650:17:15"
             },
             "returnParameters": {
-              "id": 2589,
+              "id": 3704,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2588,
+                  "id": 3703,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2590,
-                  "src": "1665:7:10",
+                  "scope": 3705,
+                  "src": "1691:7:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1132,10 +1164,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2587,
+                    "id": 3702,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1665:7:10",
+                    "src": "1691:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1144,42 +1176,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1664:9:10"
+              "src": "1690:9:15"
             },
-            "scope": 2623,
-            "src": "1603:71:10",
+            "scope": 3738,
+            "src": "1629:71:15",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 2591,
+              "id": 3706,
               "nodeType": "StructuredDocumentation",
-              "src": "1682:105:10",
+              "src": "1708:105:15",
               "text": " @param tokenId is the id of the sbt\n @return _tokenAddress associated to the sbt"
             },
             "functionSelector": "67ccdf38",
-            "id": 2598,
+            "id": 3713,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getTokenAddress",
-            "nameLocation": "1802:15:10",
+            "nameLocation": "1828:15:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2594,
+              "id": 3709,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2593,
+                  "id": 3708,
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "1826:7:10",
+                  "nameLocation": "1852:7:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2598,
-                  "src": "1818:15:10",
+                  "scope": 3713,
+                  "src": "1844:15:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1187,10 +1219,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2592,
+                    "id": 3707,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1818:7:10",
+                    "src": "1844:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1199,21 +1231,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1817:17:10"
+              "src": "1843:17:15"
             },
             "returnParameters": {
-              "id": 2597,
+              "id": 3712,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2596,
+                  "id": 3711,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2598,
-                  "src": "1858:7:10",
+                  "scope": 3713,
+                  "src": "1884:7:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1221,10 +1253,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2595,
+                    "id": 3710,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1858:7:10",
+                    "src": "1884:7:15",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1234,42 +1266,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1857:9:10"
+              "src": "1883:9:15"
             },
-            "scope": 2623,
-            "src": "1793:74:10",
+            "scope": 3738,
+            "src": "1819:74:15",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 2599,
+              "id": 3714,
               "nodeType": "StructuredDocumentation",
-              "src": "1901:156:10",
+              "src": "1927:156:15",
               "text": " @param admin is the address of the admin to add/remove\n @param isAdmin is true if the admin is added, false if the admin is removed"
             },
             "functionSelector": "e25c8c71",
-            "id": 2606,
+            "id": 3721,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "editAdmin",
-            "nameLocation": "2072:9:10",
+            "nameLocation": "2098:9:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2604,
+              "id": 3719,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2601,
+                  "id": 3716,
                   "mutability": "mutable",
                   "name": "admin",
-                  "nameLocation": "2090:5:10",
+                  "nameLocation": "2116:5:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2606,
-                  "src": "2082:13:10",
+                  "scope": 3721,
+                  "src": "2108:13:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1277,10 +1309,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2600,
+                    "id": 3715,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2082:7:10",
+                    "src": "2108:7:15",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1291,13 +1323,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2603,
+                  "id": 3718,
                   "mutability": "mutable",
                   "name": "isAdmin",
-                  "nameLocation": "2102:7:10",
+                  "nameLocation": "2128:7:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2606,
-                  "src": "2097:12:10",
+                  "scope": 3721,
+                  "src": "2123:12:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1305,10 +1337,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2602,
+                    "id": 3717,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2097:4:10",
+                    "src": "2123:4:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1317,48 +1349,48 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2081:29:10"
+              "src": "2107:29:15"
             },
             "returnParameters": {
-              "id": 2605,
+              "id": 3720,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2119:0:10"
+              "src": "2145:0:15"
             },
-            "scope": 2623,
-            "src": "2063:57:10",
+            "scope": 3738,
+            "src": "2089:57:15",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 2607,
+              "id": 3722,
               "nodeType": "StructuredDocumentation",
-              "src": "2128:161:10",
+              "src": "2154:161:15",
               "text": " @param minter is the address of the minter to add/remove\n @param isMinter is true if the minter is added, false if the minter is removed"
             },
             "functionSelector": "4f056c62",
-            "id": 2614,
+            "id": 3729,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "editMinter",
-            "nameLocation": "2304:10:10",
+            "nameLocation": "2330:10:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2612,
+              "id": 3727,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2609,
+                  "id": 3724,
                   "mutability": "mutable",
                   "name": "minter",
-                  "nameLocation": "2323:6:10",
+                  "nameLocation": "2349:6:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2614,
-                  "src": "2315:14:10",
+                  "scope": 3729,
+                  "src": "2341:14:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1366,10 +1398,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2608,
+                    "id": 3723,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2315:7:10",
+                    "src": "2341:7:15",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1380,13 +1412,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2611,
+                  "id": 3726,
                   "mutability": "mutable",
                   "name": "isMinter",
-                  "nameLocation": "2336:8:10",
+                  "nameLocation": "2362:8:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2614,
-                  "src": "2331:13:10",
+                  "scope": 3729,
+                  "src": "2357:13:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1394,10 +1426,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2610,
+                    "id": 3725,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2331:4:10",
+                    "src": "2357:4:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1406,48 +1438,48 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2314:31:10"
+              "src": "2340:31:15"
             },
             "returnParameters": {
-              "id": 2613,
+              "id": 3728,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2354:0:10"
+              "src": "2380:0:15"
             },
-            "scope": 2623,
-            "src": "2295:60:10",
+            "scope": 3738,
+            "src": "2321:60:15",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 2615,
+              "id": 3730,
               "nodeType": "StructuredDocumentation",
-              "src": "2363:161:10",
+              "src": "2389:161:15",
               "text": " @param burner is the address of the burner to add/remove\n @param isBurner is true if the burner is added, false if the burner is removed"
             },
             "functionSelector": "1bc4d889",
-            "id": 2622,
+            "id": 3737,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "editBurner",
-            "nameLocation": "2539:10:10",
+            "nameLocation": "2565:10:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2620,
+              "id": 3735,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2617,
+                  "id": 3732,
                   "mutability": "mutable",
                   "name": "burner",
-                  "nameLocation": "2558:6:10",
+                  "nameLocation": "2584:6:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2622,
-                  "src": "2550:14:10",
+                  "scope": 3737,
+                  "src": "2576:14:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1455,10 +1487,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2616,
+                    "id": 3731,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2550:7:10",
+                    "src": "2576:7:15",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1469,13 +1501,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2619,
+                  "id": 3734,
                   "mutability": "mutable",
                   "name": "isBurner",
-                  "nameLocation": "2571:8:10",
+                  "nameLocation": "2597:8:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2622,
-                  "src": "2566:13:10",
+                  "scope": 3737,
+                  "src": "2592:13:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1483,10 +1515,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2618,
+                    "id": 3733,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2566:4:10",
+                    "src": "2592:4:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1495,27 +1527,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2549:31:10"
+              "src": "2575:31:15"
             },
             "returnParameters": {
-              "id": 2621,
+              "id": 3736,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2589:0:10"
+              "src": "2615:0:15"
             },
-            "scope": 2623,
-            "src": "2530:60:10",
+            "scope": 3738,
+            "src": "2556:60:15",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 2624,
-        "src": "90:2503:10",
+        "scope": 3739,
+        "src": "90:2529:15",
         "usedErrors": []
       }
     ],
-    "src": "0:2597:10"
+    "src": "0:2623:15"
   },
   "compiler": {
     "name": "solc",
@@ -1523,7 +1555,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.12",
-  "updatedAt": "2023-02-25T22:35:32.766Z",
+  "updatedAt": "2023-02-28T16:57:32.846Z",
   "devdoc": {
     "kind": "dev",
     "methods": {
@@ -1567,6 +1599,14 @@
           "_0": "_merkleRoot associated to the sbt"
         }
       },
+      "getSignature(uint256)": {
+        "params": {
+          "tokenId": "is the id of the sbt"
+        },
+        "returns": {
+          "_0": "_signature associated to the sbt"
+        }
+      },
       "getTimestamp(uint256)": {
         "params": {
           "tokenId": "is the id of the sbt"
@@ -1591,24 +1631,16 @@
           "_0": "_tokenURI associated to the sbt"
         }
       },
-      "getZkProof(uint256)": {
-        "params": {
-          "tokenId": "is the id of the sbt"
-        },
-        "returns": {
-          "_0": "_zkProof associated to the sbt"
-        }
-      },
       "isApprovedForAll(address,address)": {
         "details": "Returns if the `operator` is allowed to manage all of the assets of `owner`. See {setApprovalForAll}"
       },
-      "mint(address,address,string,bytes32,string)": {
+      "mint(address,address,string,bytes32,uint256,string)": {
         "params": {
           "merkleRoot": "is the merkle root of the addresses (to ensure that the addresses have not been modified)",
           "receiver": "is the address of the receiver of the sbt",
+          "signature": "is the zk proof generated in the frontend (which has been verified by the verifier) mint a new sbt",
           "token": "is the address of the token that is linked to the sbt",
-          "tokenURI": "is the uri where we can get the addresses used to generate the proof (stored on ipfs)",
-          "zkProof": "is the zk proof generated in the frontend (which has been verified by the verifier) mint a new sbt"
+          "tokenURI": "is the uri where we can get the addresses used to generate the proof (stored on ipfs)"
         }
       },
       "ownerOf(uint256)": {

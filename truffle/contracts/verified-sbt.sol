@@ -15,8 +15,9 @@ contract verified_sbt is ERC721 {
     mapping (uint256 => address) private _token; // link the sbt to a certain token
 
     mapping (uint256 => string) private _tokenURI; // uri where we can get the addresses used to generate the proof
-    mapping (uint256 => string) private _zkProof; // zk proof generated in the frontend (not verified yet)
+    mapping (uint256 => string) private _verifier; // could be used id the verifier wants to be sure that the sbt has been minted for him (example : his address or somethings he asked the prover to write)
 
+    mapping (uint256 => uint256) private _signature; // zk proof generated in the frontend (not verified yet)
     mapping (uint256 => uint256) private _timestamp; // timestamp of the minting of the proof
 
     mapping (uint256 => bytes32) private _merkleRoot; // merkle root of the addresses (to ensure that the addresses have not been modified)
@@ -91,18 +92,20 @@ contract verified_sbt is ERC721 {
     * @param token is the address of the token that is linked to the sbt
     * @param tokenURI is the uri where we can get the addresses used to generate the proof (stored on ipfs)
     * @param merkleRoot is the merkle root of the addresses (to ensure that the addresses have not been modified)
-    * @param zkProof is the zk proof generated in the frontend (which has been verified by the verifier)
+    * @param signature is the zk proof generated in the frontend (which has been verified by the verifier)
+    * @param verifier is a string which could be used id the verifier wants to be sure that the sbt has been minted for him (example : his address or somethings he asked the prover to write)
     * mint a new sbt
     */
-    function mint(address receiver, address token, string memory tokenURI, bytes32 merkleRoot, string memory zkProof) public {
+    function mint(address receiver, address token, string memory tokenURI, bytes32 merkleRoot, uint256 signature, string memory verifier) public {
         require(_isMinter[msg.sender], "You are not a minter");
 
         _owner[_tokenId] = receiver;
         _token[_tokenId] = token;
         _tokenURI[_tokenId] = tokenURI;
         _merkleRoot[_tokenId] = merkleRoot;
-        _zkProof[_tokenId] = zkProof;
+        _signature[_tokenId] = signature;
         _timestamp[_tokenId] = block.timestamp;
+        _verifier[_tokenId] = verifier;
         _tokenId++;
 
         emit Mint(receiver, _tokenId);
@@ -118,7 +121,7 @@ contract verified_sbt is ERC721 {
         delete _owner[tokenId];
         delete _tokenURI[tokenId];
         delete _merkleRoot[tokenId];
-        delete _zkProof[tokenId];
+        delete _signature[tokenId];
         delete _timestamp[tokenId];
         delete _token[tokenId];
 
@@ -136,10 +139,10 @@ contract verified_sbt is ERC721 {
     }
     /**
     * @param tokenId is the id of the sbt
-    * @return _zkProof associated to the sbt
+    * @return _signature associated to the sbt
     */
-    function getZkProof(uint256 tokenId) public view returns (string memory) {
-        return _zkProof[tokenId];
+    function getSignature(uint256 tokenId) public view returns (uint256) {
+        return _signature[tokenId];
     }
     /**
     * @param tokenId is the id of the sbt
