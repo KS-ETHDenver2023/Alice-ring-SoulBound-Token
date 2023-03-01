@@ -1,6 +1,5 @@
-pragma solidity ^0.8.17;
+pragma solidity 0.4.24;
 
-// Taken from https://github.com/HarryR/solcrypto, sligthly modified by ourself
 
 library HackyAOSRing
 {  
@@ -24,19 +23,19 @@ library HackyAOSRing
 	{
 		address hashed_point = sbmul_add_smul(t, x, y, s);
 
-		bytes memory ring_link = abi.encodePacked(x, y, uint160(hashed_point), message);
+		bytes memory ring_link = abi.encodePacked(x, y, uint256(hashed_point), message);
 
 		return uint256(keccak256(ring_link));
 	}
 
 
-	function Verify( address[] memory addresses, uint256[] memory tees, uint256 seed, uint256 message )
+	function Verify( address[] addresses, uint256[] tees, uint256 seed, uint256 message )
 		public pure returns (bool)
 	{
 		uint256[] memory pubkeys = new uint256[](addresses.length);
-		for( uint256 i = 0; i < addresses.length; i++ )
+		for( uint256 p = 0; p < addresses.length; p++ )
 		{
-			pubkeys[i] = uint256(uint160(addresses[i]));
+			pubkeys[p] = uint256(uint160(addresses[p]));
 		}
 		require( pubkeys.length % 2 == 0 );
 		require( pubkeys.length > 0 );
@@ -58,3 +57,4 @@ library HackyAOSRing
 		return c == seed;
 	}
 }
+
