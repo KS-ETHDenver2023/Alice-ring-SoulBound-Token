@@ -3,7 +3,8 @@
 pragma solidity ^0.8.17;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/utils/Strings.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
+
 
 // Proof of Solvency Token
 contract PoS_token is ERC721 {
@@ -47,29 +48,30 @@ contract PoS_token is ERC721 {
         _isMinter[0x9198aEf8f3019f064d0826eB9e07Fb07a3d3a4BD] = true;
     }
 
+    
     /**
     * @param from is the current owner of the NFT
     * @param to is the new owner of the NFT
     * @param tokenId is the NFT to transfer
     * safeTransferFrom and transferFrom are disabled because the nft is a sbt
     */
-    function safeTransferFrom(address from, address to, uint256 tokenId) public pure override {
+    function safeTransferFrom(address from, address to, uint256 tokenId) internal pure override {
         revert("No one can transfer this token");
     }
-    function transferFrom(address from, address to, uint256 tokenId) public pure override {
+    function transferFrom(address from, address to, uint256 tokenId) internal pure override {
         revert("No one can transfer this token");
     }
 
     /**
     * approve is disabled because the nft is a sbt and cannot be transfered
     */
-    function approve(address to, uint256 tokenId) public pure override {
+    function approve(address to, uint256 tokenId) internal pure override {
         revert("No one can transfer this token");
     }
     /**
     * getApproved is disabled because the nft is a sbt and cannot be transfered
     */
-    function getApproved(uint256 tokenId) public view override returns (address operator) {
+    function getApproved(uint256 tokenId) public override returns (address operator) {
         revert("No one can transfer this token");
         return address(0);
     }
@@ -108,9 +110,12 @@ contract PoS_token is ERC721 {
         _signature[_tokenId] = signature;
         _timestamp[_tokenId] = block.timestamp;
         _verifier[_tokenId] = verifier;
+
+        _mint(receiver, _tokenId);
+        emit Mint(receiver, _tokenId);
+
         _tokenId++;
 
-        emit Mint(receiver, _tokenId);
     }
 
     /**
@@ -127,6 +132,7 @@ contract PoS_token is ERC721 {
         delete _timestamp[tokenId];
         delete _token[tokenId];
 
+        _burn(tokenId);
         emit Burn(msg.sender, tokenId);
     }
 
