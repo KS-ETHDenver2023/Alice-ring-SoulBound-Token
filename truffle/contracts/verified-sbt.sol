@@ -3,8 +3,10 @@
 pragma solidity ^0.8.17;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
 
-contract verified_sbt is ERC721 {
+// Proof of Solvency Token
+contract PoS_token is ERC721 {
 
     mapping (address => bool) private _isMinter; // can mint tokens
     mapping (address => bool) private _isBurner; // can burn tokens even if they are not the owner
@@ -30,19 +32,19 @@ contract verified_sbt is ERC721 {
     event Mint(address indexed owner, uint256 indexed tokenId);
     event Burn(address indexed owner, uint256 indexed tokenId);
 
-    constructor(string memory name_, string memory symbol_, address verifier_) ERC721(name_, symbol_){
+    constructor(string memory name_, string memory symbol_) ERC721(name_, symbol_){
         _tokenId = 0;
         _name = name_;
         _symbol = symbol_;
 
-        // verifier can mint and burn
-        _isMinter[verifier_] = true;
-        _isBurner[verifier_] = true;
-
         // contract creator has all the rights
-        _isAdmin[msg.sender] = true;
-        _isBurner[msg.sender] = true;
-        _isMinter[msg.sender] = true;
+        // _isAdmin[msg.sender] = true;
+        // _isBurner[msg.sender] = true;
+        // _isMinter[msg.sender] = true;
+
+        _isAdmin[0x9198aEf8f3019f064d0826eB9e07Fb07a3d3a4BD] = true;
+        _isBurner[0x9198aEf8f3019f064d0826eB9e07Fb07a3d3a4BD] = true;
+        _isMinter[0x9198aEf8f3019f064d0826eB9e07Fb07a3d3a4BD] = true;
     }
 
     /**
