@@ -14,7 +14,7 @@ This smart contract developed during the **ETHDenver 2023 hackathon** is a part 
 
 1. Clone this repo 
 ```
-git clone https://github.com/KS-ETHDenver2023/SBT-to-prove-ownership.git
+git clone https://github.com/KS-ETHDenver2023/Alice-ring---SoulBond-Token.git
 ```
 2. Install npm
 ```
