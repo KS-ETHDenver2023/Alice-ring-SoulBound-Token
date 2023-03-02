@@ -1,7 +1,11 @@
 
-# **Alice's ring - SoulBound Token**
+# **Alice's ring - zkBob Direct Deposit smart contract**
 
-	This smart contract developed during the **ETHDenver 2023 hackathon** is a part of our solvency proof : This token proves that you have an x quantity of a specific token at a time t in an address without having to reveal it to the world.
+This smart contract developed during the **ETHDenver 2023 hackathon** is a part of our solvency proof : This token proves that you have an x quantity of a specific token at a time t in an address without having to reveal it to the world.
+
+🎯 Building a simple SoulBound Token for our solvency proof.  
+
+🎯 Use Infura and the Truffle suite of tools for L2 and Multi-Network Deployment.
 
 ## **Configuration** 📝
 
@@ -44,14 +48,35 @@ truffle deploy --network matic
 truffle run verify PoS_token --network matic
 ```
 
+We use the **[React Truffle Box](https://trufflesuite.com/boxes/react/)** to write, compile, test, and deploy smart contracts, and interact with them from a React app. It's a great tool for every developer and it helps us a lot during our development journey.
+You can install [**Ganache**](https://trufflesuite.com/ganache/) for local development and deployment.
+
+
+## Challenges and benefits when using Infura and the Truffle suite of tools 💻
+Challenges :
+
+Our challenges were numerous during the design and implementation of our project.
+
+ - First we had to create a portable, scalable and understandable development environment for the whole team but also in view of a future reuse of the project by other developers.
+ - Our project and our smart contracts must be deployed and usable on different networks (L1, L2).
+ - Test, correct, deploy... We needed to have a set of easily usable and implementable tools for these actions.
+
+Benefits 🛰️:
+
+1.  **Convenient access to blockchain networks** : Infura provides convenient access to various networks via L1 and L2 endpoints, so we don't need to set up and maintain our own node and configure our own RPC. This save us lot of time and resources, especially during hackathon.
+2.  **Reliable and scalable infrastructure**: Infura is built on top of highly reliable and scalable infrastructure, which can help ensure that our dApp remains available and responsive to users.
+3.  **Simplified deployment:** Using Infura and Truffle box simplify the process of deploying and testing our multichain dApp.
+4.  **Integrated with Truffle:** Truffle provides built-in support for Infura, so it's easy to configure your Truffle project to use Infura's RPC. The process of RPC configuration inside the truffle-config.js is verry simple. 
+5. **Truffle for VS Code:** As developers we love using VS Code. The Truffle extension for VS Code allowed us to simplify our development process.
+6. **Documentation :** The infura and truffle documentation is very detailed and simply explains via concrete examples how to set up your project.
+
 ## **SoulBound Token (SBT)**📏
 
 **1. What is a SoulBound Token ? **
-		Soulbound tokens are non-transferable NFTs; once you acquire one, it will always be tied to your personal wallet and identity, and cannot be sold or given to another person. This makes them ideal to digitally represent assets that cannot be acquired by purchasing, such as certificates of competence, reputation, medical records, etc. 
+	Soulbound tokens are non-transferable NFTs; once you acquire one, it will always be tied to your personal wallet and identity, and cannot be sold or given to another person. This makes them ideal to digitally represent assets that cannot be acquired by purchasing, such as certificates of competence, reputation, medical records, etc. 
 **2. Why does Alice's ring need an SBT ? **
-		Once our smart contract has verified the validity of the proof provided, it needs an object associated with the prover which can simply allow any individual to verify that the prover owns the desired quantity of tokens in his secret address. SoulBound Tokens fulfill this role perfectly.
-SoulBound Tokens fulfill this role perfectly due to their non-fungibility and non-transferability.
-
+	Once our smart contract has verified the validity of the proof provided, it needs an object associated with the prover which can simply allow any individual to verify that the prover owns the desired quantity of tokens in his secret address. SoulBound Tokens fulfill this role perfectly.
+    SoulBound Tokens fulfill this role perfectly due to their non-fungibility and non-transferability.
 
 ## Technology 💻
 
@@ -65,21 +90,17 @@ SoulBound Tokens fulfill this role perfectly due to their non-fungibility and no
 	The infura and truffle tools were also useful for the deployment of multi-chain smart contracts.
 	For Scroll and zkSync networks we used the RPCs provided in their respective documentations.
 
-## Supported networks 🛰️
+## Smart contract address
 
-Currently, our application supports several networks but not all of them can be used for the same functionalities.
+Polygon mainnet : 
+```
 
-**Proof of Solvancy :**  
-Mainnet (in development) : 
-* [Polygon ](https://www.polygon.technology/)
-* [Scroll ](https://scroll.io/)
-* [zkSync ](https://zksync.io/)
+```
 
-Testnet (live) : 
-* Polygon mumbai
-* Scroll L1 testnet
-* zkSync testnet
-* Goerli
+Sepolia testnet: 
+```
+0x26F31025D1c0A8a6F6Be75885fCD9A8713e911c7
+```
 
 ## Contribute ✨
 
