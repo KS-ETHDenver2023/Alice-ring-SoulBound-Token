@@ -2,10 +2,13 @@
 # **Alice's ring - zkBob Direct Deposit smart contract**
 
 This smart contract developed during the **ETHDenver 2023 hackathon** is a part of our solvency proof : This token proves that you have an x quantity of a specific token at a time t in an address without having to reveal it to the world.
+<<<<<<< HEAD
 
 🎯 Building a simple SoulBound Token for our solvency proof.  
 
 🎯 Use Infura and the Truffle suite of tools for L2 and Multi-Network Deployment.
+=======
+>>>>>>> 0d88de0c10f68d3518f3f214579204fbab371ea8
 
 ## **Configuration** 📝
 
