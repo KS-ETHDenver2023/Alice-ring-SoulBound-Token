@@ -1,7 +1,7 @@
 
 # **Alice's ring - SoulBond Token**
 
-This smart contract developed during the **ETHDenver 2023 hackathon** is a part of our solvency proof : This token proves that you have an x quantity of a specific token at a time t in an address without having to reveal it to the world.
+This smart contract developed during the **ETHDenver 2023 hackathon** is a part of our solvency proof : This token proves that you have an X quantity of a specific token at a time T in an address without having to reveal it to the world.
 
 
 🎯 Building a simple SoulBound Token for our solvency proof.  
