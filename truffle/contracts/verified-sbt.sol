@@ -20,6 +20,7 @@ contract PoS_token is ERC721 {
     mapping (uint256 => string) private _tokenURI; // uri where we can get the addresses used to generate the proof
     mapping (uint256 => string) private _verifier; // could be used id the verifier wants to be sure that the sbt has been minted for him (example : his address or somethings he asked the prover to write)
 
+    mapping (uint256 => uint256) private _value; // number of tokens owned when the proof has been generated
     mapping (uint256 => uint256) private _signature; // zk proof generated in the frontend (not verified yet)
     mapping (uint256 => uint256) private _timestamp; // timestamp of the minting of the proof
 
@@ -55,23 +56,23 @@ contract PoS_token is ERC721 {
     * @param tokenId is the NFT to transfer
     * safeTransferFrom and transferFrom are disabled because the nft is a sbt
     */
-    function safeTransferFrom(address from, address to, uint256 tokenId) internal pure override {
+    function safeTransferFrom(address from, address to, uint256 tokenId) public pure override {
         revert("No one can transfer this token");
     }
-    function transferFrom(address from, address to, uint256 tokenId) internal pure override {
+    function transferFrom(address from, address to, uint256 tokenId) public pure override {
         revert("No one can transfer this token");
     }
 
     /**
     * approve is disabled because the nft is a sbt and cannot be transfered
     */
-    function approve(address to, uint256 tokenId) internal pure override {
+    function approve(address to, uint256 tokenId) public pure override {
         revert("No one can transfer this token");
     }
     /**
     * getApproved is disabled because the nft is a sbt and cannot be transfered
     */
-    function getApproved(uint256 tokenId) public override returns (address operator) {
+    function getApproved(uint256 tokenId) public view override returns (address operator) {
         revert("No one can transfer this token");
         return address(0);
     }
@@ -138,6 +139,13 @@ contract PoS_token is ERC721 {
 
     // get sbt data    
 
+    /**
+    * @param tokenId is the id of the sbt
+    * @return the value owned by the owner of the sbt when the proof has been generated
+    */
+    function getValue(uint256 tokenId) public view returns (uint256) {
+        return _value[tokenId];
+    }
     /**
     * @param tokenId is the id of the sbt
     * @return _merkleRoot associated to the sbt
