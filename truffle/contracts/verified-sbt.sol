@@ -9,27 +9,27 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 // Proof of Solvency Token
 contract PoS_token is ERC721 {
 
-    mapping (address => bool) private _isMinter; // can mint tokens
-    mapping (address => bool) private _isBurner; // can burn tokens even if they are not the owner
-    mapping (address => bool) private _isAdmin; // admin can add and delete admins, set and unset minters and burners
+    mapping (address => bool) public _isMinter; // can mint tokens
+    mapping (address => bool) public _isBurner; // can burn tokens even if they are not the owner
+    mapping (address => bool) public _isAdmin; // admin can add and delete admins, set and unset minters and burners
 
 
-    mapping (uint256 => address) private _owner; // link the sbt to a certain owner
-    mapping (uint256 => address) private _token; // link the sbt to a certain token
+    mapping (uint256 => address) public _owner; // link the sbt to a certain owner
+    mapping (uint256 => address) public _token; // link the sbt to a certain token
 
-    mapping (uint256 => string) private _tokenURI; // uri where we can get the addresses used to generate the proof
-    mapping (uint256 => string) private _verifier; // could be used id the verifier wants to be sure that the sbt has been minted for him (example : his address or somethings he asked the prover to write)
+    mapping (uint256 => string) public _tokenURI; // uri where we can get the addresses used to generate the proof
+    mapping (uint256 => string) public _verifier; // could be used id the verifier wants to be sure that the sbt has been minted for him (example : his address or somethings he asked the prover to write)
 
-    mapping (uint256 => uint256) private _value; // number of tokens owned when the proof has been generated
-    mapping (uint256 => uint256) private _signature; // zk proof generated in the frontend (not verified yet)
-    mapping (uint256 => uint256) private _timestamp; // timestamp of the minting of the proof
+    mapping (uint256 => uint256) public _value; // number of tokens owned when the proof has been generated
+    mapping (uint256 => uint256) public _signature; // zk proof generated in the frontend (not verified yet)
+    mapping (uint256 => uint256) public _timestamp; // timestamp of the minting of the proof
 
-    mapping (uint256 => bytes32) private _merkleRoot; // merkle root of the addresses (to ensure that the addresses have not been modified)
+    mapping (uint256 => bytes32) public _merkleRoot; // merkle root of the addresses (to ensure that the addresses have not been modified)
 
 
     uint256 private _tokenId;
-    string private _name;
-    string private _symbol;
+    string public _name;
+    string public _symbol;
 
     event Mint(address indexed owner, uint256 indexed tokenId);
     event Burn(address indexed owner, uint256 indexed tokenId);
