@@ -1,4 +1,4 @@
-// license: MIT
+// license: UNLICENSED
 
 pragma solidity ^0.8.17;
 
@@ -44,6 +44,7 @@ contract PoS_token is ERC721 {
         // _isBurner[msg.sender] = true;
         // _isMinter[msg.sender] = true;
 
+        // temporary : a delete dans le final
         _isAdmin[0x9198aEf8f3019f064d0826eB9e07Fb07a3d3a4BD] = true;
         _isBurner[0x9198aEf8f3019f064d0826eB9e07Fb07a3d3a4BD] = true;
         _isMinter[0x9198aEf8f3019f064d0826eB9e07Fb07a3d3a4BD] = true;
@@ -51,10 +52,10 @@ contract PoS_token is ERC721 {
 
     
     /**
+    * @notice safeTransferFrom and transferFrom are disabled because the nft is a sbt
     * @param from is the current owner of the NFT
     * @param to is the new owner of the NFT
     * @param tokenId is the NFT to transfer
-    * safeTransferFrom and transferFrom are disabled because the nft is a sbt
     */
     function safeTransferFrom(address from, address to, uint256 tokenId) public pure override {
         revert("No one can transfer this token");
@@ -64,28 +65,28 @@ contract PoS_token is ERC721 {
     }
 
     /**
-    * approve is disabled because the nft is a sbt and cannot be transfered
+    * @notice approve is disabled because the nft is a sbt and cannot be transfered
     */
     function approve(address to, uint256 tokenId) public pure override {
         revert("No one can transfer this token");
     }
     /**
-    * getApproved is disabled because the nft is a sbt and cannot be transfered
+    * @notice getApproved is disabled because the nft is a sbt and cannot be transfered
     */
-    function getApproved(uint256 tokenId) public view override returns (address operator) {
+    function getApproved(uint256 tokenId) public pure override returns (address operator) {
         revert("No one can transfer this token");
         return address(0);
     }
     /**
-    * setApprovalForAll is disabled because the nft is a sbt and cannot be transfered
+    * @notice setApprovalForAll is disabled because the nft is a sbt and cannot be transfered
     */
     function setApprovalForAll(address operator, bool _approved) public pure override {
         revert("No one can transfer this token");
     }
     /**
-    * isApprovedForAll is disabled because the nft is a sbt and cannot be transfered -> the output will always be false
+    * @notice isApprovedForAll is disabled because the nft is a sbt and cannot be transfered -> the output will always be false
     */
-    function isApprovedForAll(address owner, address operator) public view override returns (bool) {
+    function isApprovedForAll(address owner, address operator) public pure override returns (bool) {
         return false;
     }
 
@@ -93,15 +94,16 @@ contract PoS_token is ERC721 {
     // mint and burn sbt
 
     /**
+    * @notice mint a new sbt with the given caracteristics (only minters can call it)
     * @param receiver is the address of the receiver of the sbt
     * @param token is the address of the token that is linked to the sbt
+    * @param value is the value the contract has verified
     * @param tokenURI is the uri where we can get the addresses used to generate the proof (stored on ipfs)
     * @param merkleRoot is the merkle root of the addresses (to ensure that the addresses have not been modified)
     * @param signature is the zk proof generated in the frontend (which has been verified by the verifier)
     * @param verifier is a string which could be used id the verifier wants to be sure that the sbt has been minted for him (example : his address or somethings he asked the prover to write)
-    * mint a new sbt
     */
-    function mint(address receiver, address token, string memory tokenURI, bytes32 merkleRoot, uint256 signature, string memory verifier) public {
+    function mint(address receiver, address token, uint256 value, string memory tokenURI, bytes32 merkleRoot, uint256 signature, string memory verifier) public {
         require(_isMinter[msg.sender], "You are not a minter");
 
         _owner[_tokenId] = receiver;
@@ -111,6 +113,7 @@ contract PoS_token is ERC721 {
         _signature[_tokenId] = signature;
         _timestamp[_tokenId] = block.timestamp;
         _verifier[_tokenId] = verifier;
+        _value[_tokenId] = value;
 
         _mint(receiver, _tokenId);
         emit Mint(receiver, _tokenId);
@@ -120,8 +123,8 @@ contract PoS_token is ERC721 {
     }
 
     /**
+    * @notice delete all the caracteristics of tokenId (burn)
     * @param tokenId is the id of the sbt to burn
-    * burn an sbt
     */
     function burn(uint256 tokenId) public {
         require(_owner[tokenId] == msg.sender || _isBurner[msg.sender], "You are not allowed to burn this token");
@@ -137,54 +140,9 @@ contract PoS_token is ERC721 {
         emit Burn(msg.sender, tokenId);
     }
 
-    // get sbt data    
-
-    /**
-    * @param tokenId is the id of the sbt
-    * @return the value owned by the owner of the sbt when the proof has been generated
-    */
-    function getValue(uint256 tokenId) public view returns (uint256) {
-        return _value[tokenId];
-    }
-    /**
-    * @param tokenId is the id of the sbt
-    * @return _merkleRoot associated to the sbt
-    */
-    function getMerkleRoot(uint256 tokenId) public view returns (bytes32) {
-        return _merkleRoot[tokenId];
-    }
-    /**
-    * @param tokenId is the id of the sbt
-    * @return _signature associated to the sbt
-    */
-    function getSignature(uint256 tokenId) public view returns (uint256) {
-        return _signature[tokenId];
-    }
-    /**
-    * @param tokenId is the id of the sbt
-    * @return _tokenURI associated to the sbt
-    */
-    function getTokenURI(uint256 tokenId) public view returns (string memory) {
-        return _tokenURI[tokenId];
-    }
-    /**
-    * @param tokenId is the id of the sbt
-    * @return _timestamp associated to the sbt
-    */
-    function getTimestamp(uint256 tokenId) public view returns (uint256) {
-        return _timestamp[tokenId];
-    }
-
-        /**
-    * @param tokenId is the id of the sbt
-    * @return _tokenAddress associated to the sbt
-    */
-    function getTokenAddress(uint256 tokenId) public view returns (address) {
-        return _token[tokenId];
-    }
-
     // admin functions
     /**
+    * @notice set or unset admin
     * @param admin is the address of the admin to add/remove
     * @param isAdmin is true if the admin is added, false if the admin is removed
     */
@@ -192,7 +150,9 @@ contract PoS_token is ERC721 {
         require(_isAdmin[msg.sender], "You are not an admin");
         _isAdmin[admin] = isAdmin;
     }
+
     /**
+    * @notice set or unset minter
     * @param minter is the address of the minter to add/remove
     * @param isMinter is true if the minter is added, false if the minter is removed
     */
@@ -200,7 +160,9 @@ contract PoS_token is ERC721 {
         require(_isAdmin[msg.sender], "You are not an admin");
         _isMinter[minter] = isMinter;
     }
+    
     /**
+    * @notice set or unset burner
     * @param burner is the address of the burner to add/remove
     * @param isBurner is true if the burner is added, false if the burner is removed
     */
