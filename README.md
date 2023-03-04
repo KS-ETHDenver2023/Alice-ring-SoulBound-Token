@@ -73,7 +73,7 @@ Benefits 🛰️:
 5. **Truffle for VS Code:** As developers we love using VS Code. The Truffle extension for VS Code allowed us to simplify our development process.
 6. **Documentation :** The infura and truffle documentation is very detailed and simply explains via concrete examples how to set up your project.
 
-## **SoulBound Token (SBT)**📏
+## **SoulBound Token (SBT)** 📏
 
 **1. What is a SoulBound Token ? **
 	Soulbound tokens are non-transferable NFTs; once you acquire one, it will always be tied to your personal wallet and identity, and cannot be sold or given to another person. This makes them ideal to digitally represent assets that cannot be acquired by purchasing, such as certificates of competence, reputation, medical records, etc. 
