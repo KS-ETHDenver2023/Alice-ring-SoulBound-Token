@@ -32,7 +32,7 @@ npm i @truffle/hdwallet-provider
 ```
 npm i @openzeppelin/contracts
 ```
-6. Setup your .env file in the truffle folder
+6. Set up your .env file in the truffle folder
 ```
 MNEMONIC="Your mnemonic"
 API_KEY="Your infura api key"
