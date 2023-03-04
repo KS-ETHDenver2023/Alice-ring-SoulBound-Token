@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 
 
 // Proof of Solvency Token
-contract PoS_token is ERC721 {
+contract ARS_token is ERC721 {
 
     mapping (address => bool) public _isMinter; // can mint tokens
     mapping (address => bool) public _isBurner; // can burn tokens even if they are not the owner
