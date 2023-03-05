@@ -37,6 +37,7 @@ npm i @openzeppelin/contracts
 MNEMONIC="Your mnemonic"
 API_KEY="Your infura api key"
 ETHERSCAN="Your etherscan api key"
+POLYGONSCAN="Your polygonscan api key"
 ```
 7. Compile using truffle 
 ```
