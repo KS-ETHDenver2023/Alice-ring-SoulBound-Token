@@ -15,7 +15,7 @@ This smart contract developed during the **ETHDenver 2023 hackathon** is a part 
 1. Clone this repo 
 ```
 git clone https://github.com/KS-ETHDenver2023/Alice-ring-SoulBound-Token.git
-
+```
 2. Install npm
 ```
 npm install 
@@ -24,14 +24,17 @@ npm install
 ```
 npm i truffle
 ```
+
 4. Install hdWallet
 ```
 npm i @truffle/hdwallet-provider
 ```
+
 5. Install open zeppelin libraries
 ```
 npm i @openzeppelin/contracts
 ```
+
 6. Set up your .env file in the truffle folder
 ```
 MNEMONIC="Your mnemonic"
@@ -39,14 +42,17 @@ API_KEY="Your infura api key"
 ETHERSCAN="Your etherscan api key"
 POLYGONSCAN="Your polygonscan api key"
 ```
+
 7. Compile using truffle 
 ```
 truffle compile
 ```
+
 8. Deploy using truffle 
 ```
 truffle deploy --network matic
 ```
+
 9. Verify your contract on etherscan
 ```
 truffle run verify PoS_token --network matic
@@ -103,22 +109,27 @@ Polygon mainnet :
 ```
 0x7a8a5b5Fd0880DF2118c3360D9c013dDA754FacF
 ```
+
 Polygon mumbai
 ```
 0x7a8a5b5Fd0880DF2118c3360D9c013dDA754FacF
 ```
+
 Polygon ZkEVM Testnet
 ```
 0x7a8a5b5Fd0880DF2118c3360D9c013dDA754FacF
 ```
+
 Scroll Alpha Testnet
 ```
 0x7a8a5b5Fd0880DF2118c3360D9c013dDA754FacF
 ```
+
 Sepolia testnet: 
 ```
 0x250B63aFab3Ce46D0D8679fD5D996C4f517a262F
 ```
+
 Goerli testnet: 
 ```
 0xDC039c64881Ee53f30a5AA9F577f2022f7c3EfCc
