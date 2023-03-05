@@ -100,13 +100,17 @@ SoulBound Tokens fulfill this role perfectly due to their non-fungibility and no
 
 Polygon mainnet : 
 ```
-
-```
-Scroll Alpha Testnet
-```
 0x7a8a5b5Fd0880DF2118c3360D9c013dDA754FacF
 ```
 Polygon mumbai
+```
+0x7a8a5b5Fd0880DF2118c3360D9c013dDA754FacF
+```
+Polygon ZkEVM Testnet
+```
+0x7a8a5b5Fd0880DF2118c3360D9c013dDA754FacF
+```
+Scroll Alpha Testnet
 ```
 0x7a8a5b5Fd0880DF2118c3360D9c013dDA754FacF
 ```
@@ -116,7 +120,7 @@ Sepolia testnet:
 ```
 Goerli testnet: 
 ```
-
+0xDC039c64881Ee53f30a5AA9F577f2022f7c3EfCc
 ```
 
 ## Contribute ✨
