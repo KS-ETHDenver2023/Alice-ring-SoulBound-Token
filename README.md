@@ -102,13 +102,17 @@ Polygon mainnet :
 ```
 
 ```
-Scroll L1 Testnet
+Polygon mumbai and Scroll Alpha Testnet
 ```
+0x7a8a5b5Fd0880DF2118c3360D9c013dDA754FacF
 ```
-
 Sepolia testnet: 
 ```
-0x26F31025D1c0A8a6F6Be75885fCD9A8713e911c7
+0x250B63aFab3Ce46D0D8679fD5D996C4f517a262F
+```
+Goerli testnet: 
+```
+
 ```
 
 ## Contribute ✨
